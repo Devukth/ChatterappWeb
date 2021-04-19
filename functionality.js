@@ -17,3 +17,19 @@ function logOut() {
     localStorage.removeItem('name');
     window.location.replace('index.html');
 }
+function getData() {
+    firebase.database().ref("/").on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            childKey = childSnapshot.key;
+            Room_names = childKey;
+            row = "<div class='roomName' id='" + Room_names + "' onclick='redirectToRoom(this.id)'>" + Room_names + "</div><hr>";
+            document.getElementById("output").innerHTML += row;
+        });
+    });
+}
+getData();
+
+function joinRoom(name) {
+    localStorage.setItem('roomName', name);
+    window.location.replace('page.html');
+}
