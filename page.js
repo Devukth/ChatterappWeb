@@ -18,8 +18,7 @@ getData();
 
 function sendMessage(message, room) {
     firebase.database().ref("/").child(localStorage.getItem("roomName")).update ({
-        msg: localStorage.getItem('name') + ': ' + message,
-        likes: 0
+        msg: localStorage.getItem('name') + ': ' + message
     });
     document.getElementById("msginput").value = "";
 }
