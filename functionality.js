@@ -29,6 +29,7 @@ function getData() {
 }
 getData();
 
+
 function joinRoom(room) {
     localStorage.setItem('roomName', room);
     window.location.replace('page.html');
