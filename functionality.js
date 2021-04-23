@@ -33,7 +33,8 @@ function joinRoom(room) {
     localStorage.setItem('roomName', room);
     window.location.replace('page.html');
     firebase.database().ref("/").child(room).update ({
-        msg: localStorage.getItem('name') + ' joined the group.'
+        msg: localStorage.getItem('name') + ' joined the group.',
+        likes: 0
     });
 }
 
